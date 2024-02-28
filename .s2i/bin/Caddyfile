@@ -1,0 +1,23 @@
+# Where caddy should listen
+:2015
+
+# Turn on the Web/file server
+file_server
+
+# The site root
+root * /opt/app-root/src
+
+# Because we should
+encode zstd gzip
+
+redir /sysdig-monitor-onboarding https://mvp.developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-onboarding/ permanent
+redir /sysdig-monitor-setup-team https://mvp.developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-setup-team/ permanent
+
+# On OCP we should log to stdout so Prometheus can
+# slurp up the logs for human consumption.
+log {
+  #errors stdout
+  output stdout 
+  format single_field common_log
+  level info
+}
