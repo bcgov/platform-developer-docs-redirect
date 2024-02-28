@@ -10,6 +10,7 @@ root * /opt/app-root/src
 # Because we should
 encode zstd gzip
 
+redir / https://mvp.developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
 redir /sysdig-monitor-onboarding https://mvp.developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-onboarding/ permanent
 redir /sysdig-monitor-setup-team https://mvp.developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-setup-team/ permanent
 
