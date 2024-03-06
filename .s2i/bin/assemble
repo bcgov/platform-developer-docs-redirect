@@ -25,5 +25,6 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
 fi
 
 cat  /tmp/src/Caddyfile > /opt/app-root/etc/Caddyfile
+cat /tmp/src/error.html > /opt/app-root/src/error.html
 
 echo "---> Done!"
