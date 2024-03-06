@@ -92,3 +92,8 @@ log {
 	format transform "{common_log}"
 	level info
 }
+
+handle_errors {
+	rewrite * /error.html
+	file_server
+}
