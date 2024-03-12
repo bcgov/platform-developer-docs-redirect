@@ -60,7 +60,6 @@ redir /join-bc-rocket-chat/ https://developer.gov.bc.ca/docs/default/component/b
 redir /rocketchat-etiquette/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-etiquette/ permanent
 redir /rocketchat-channel-descriptions/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-channel-descriptions/ permanent
 redir /get-help-in-rocketchat/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/get-help-in-rocketchat/ permanent
-redir /devops-security-compliance/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/devops-security-considerations/ permanent
 redir /security-best-practices-for-apps/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/security-best-practices-for-apps/ permanent
 redir /payment-card-processing/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/payment-card-processing/ permanent
 redir /vault-getting-started-guide/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/secrets-management/vault-getting-started-guide/ permanent
@@ -85,6 +84,7 @@ redir /privacy-compliance-and-guidance/ https://developer.gov.bc.ca/docs/default
 redir /argo-cd-shared-instances/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
 redir /kyverno/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/kyverno/ permanent
 redir /pruning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/pruning/ permanent
+redir /devops-security-considerations/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
 
 # On OCP we should log to stdout so Prometheus can
 # slurp up the logs for human consumption.
