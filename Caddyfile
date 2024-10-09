@@ -24,7 +24,7 @@ redir /ci-cd-pipeline-templates/ https://developer.gov.bc.ca/docs/default/compon
 redir /app-resiliency-guidelines/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/app-resiliency-guidelines/ permanent
 redir /application-resource-tuning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/application-resource-tuning/ permanent
 redir /openshift-project-resource-quotas/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/openshift-project-resource-quotas/ permanent
-redir /request-quota-increase-for-openshift-project-set/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/request-quota-increase-for-openshift-project-set/ permanent
+redir /request-quota-increase-for-openshift-project-set/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/request-quota-adjustment-for-openshift-project-set/ permanent
 redir /argo-cd-usage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
 redir /netapp-backup-restore/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/netapp-backup-restore/ permanent
 redir /prepare-to-load-test-application-on-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/prepare-to-load-test-application-on-openshift/ permanent
