@@ -5,16 +5,15 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      MAX_ATTEMPTS: 5
+      SLEEP_DURATION: 30
     steps:
       - uses: actions/checkout@v4
       
@@ -66,6 +65,9 @@ jobs:
     permissions:
       contents: read
       packages: write
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
     steps:
       - uses: actions/checkout@v4
       
