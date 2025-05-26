@@ -42,7 +42,7 @@ done
 
 # Test error handling
 echo "Testing error handling..."
-response=$(curl -s -o /dev/null/ -w "%{http_code}\n" "http://$HOST:$PORT/non-existent-path/")
+response=$(curl -s -o /dev/null -w "%{http_code}\n" "http://$HOST:$PORT/non-existent-path/")
 status=$(echo "$response")
 
 if [ "$status" == "404" ]; then
