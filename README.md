@@ -13,15 +13,21 @@ The project uses:
 
 The `test-redirects.sh` script tests a subset of redirects and the error page.
 
-You can run it locally using Docker or Podman:
+You can run it locally using Docker or Podman.
 
 ```bash
-# Build the image
+# Podman build and run commands
 podman build -t redirect-test .
-
-# Run the container
 podman run --rm -p 2015:2015 -p 2016:2016 redirect-test
+```
 
+```bash
+# Docker build and run commands
+docker build -t redirect-test .
+docker run --rm -p 2015:2015 -p 2016:2016 redirect-test
+```
+
+```bash
 # Run the automated tests
 ./scripts/test-redirects.sh localhost 2015
 
