@@ -19,6 +19,6 @@ EXPOSE 2015 2016
 
 USER 1001
 
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=5 CMD curl -f http://localhost:2016/health || exit 1
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=5 CMD wget -qO- http://localhost:2016/health || exit 1
 
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
