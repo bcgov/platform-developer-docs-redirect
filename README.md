@@ -1,9 +1,30 @@
 # platform-developer-docs-redirect
 
-This repo makes use of the [s2i-caddy-nodejs](https://github.com/bcgov/s2i-caddy-nodejs).
+This project is a redirect service using Caddy to redirect legacy URLs to the new [platform-developer-docs](https://github.com/bcgov/platform-developer-docs) location.
 
-It overrides that repos assemble file so that it only includes a Caddyfile.
+## About
 
-The Caddyfile contains redirects for the [platform-developer-docs](https://github.com/bcgov/platform-developer-docs) new location.
+The project uses:
+- Dockerfile with Caddy web server
+- Caddyfile configuration for redirects 
+- CI workflow for automated testing
+
+## Local Testing
+
+You can test the redirects locally using Docker or Podman:
+
+```bash
+# Build the image
+podman build -t redirect-test .
+
+# Run the container
+podman run --rm -p 2015:2015 redirect-test
+
+# Run the automated tests
+./scripts/test-redirects.sh localhost 2015
+
+# Or test individual redirects manually
+curl -I http://localhost:2015/sysdig-monitor-onboarding/
+```
 
 
