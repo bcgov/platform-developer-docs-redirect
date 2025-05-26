@@ -9,16 +9,18 @@ The project uses:
 - Caddyfile configuration for redirects 
 - CI workflow for automated testing
 
-## Local Testing
+## Testing
 
-You can test the redirects locally using Docker or Podman:
+The `test-redirects.sh` script tests a subset of redirects and the error page.
+
+You can run it locally using Docker or Podman:
 
 ```bash
 # Build the image
 podman build -t redirect-test .
 
 # Run the container
-podman run --rm -p 2015:2015 redirect-test
+podman run --rm -p 2015:2015 -p 2016:2016 redirect-test
 
 # Run the automated tests
 ./scripts/test-redirects.sh localhost 2015

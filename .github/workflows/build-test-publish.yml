@@ -13,6 +13,8 @@ jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       
@@ -20,7 +22,17 @@ jobs:
         uses: docker/setup-buildx-action@v3
       
       - name: Build Docker image
-        run: docker build -t platform-docs-redirect-test .
+        run: docker buildx build -t platform-docs-redirect-test .
+
+      - name: Save Docker image as tar
+        run: docker save platform-docs-redirect-test -o /tmp/redirect-image.tar
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: redirect-image
+          path: /tmp/redirect-image.tar
+          retention-days: 1
       
       - name: Run container
         run: |
@@ -57,9 +69,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      
+      - name: Download image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: redirect-image
+          path: /tmp
+
+      - name: Load Docker image
+        run: docker load -i /tmp/redirect-image.tar
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -83,3 +101,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          load: true
+          file: Dockerfile
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
