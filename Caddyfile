@@ -104,3 +104,9 @@
 	redir /pruning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/pruning/ permanent
 	redir /devops-security-considerations/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
 }
+
+:2016 {
+	handle /health {
+		respond "OK"
+	}
+}
