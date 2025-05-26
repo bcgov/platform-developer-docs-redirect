@@ -40,13 +40,13 @@ jobs:
       
       - name: Wait for healthy container
         run: |
-          for i in {1..5}; do
+          for ((i=1; i<=${{ env.MAX_ATTEMPTS }}; i++)); do
             health=$(docker inspect --format='{{.State.Health.Status}}' redirect-container)
             if [[ "$health" = "healthy" ]]; then
               echo "Container is healthy!"; exit 0
             fi
-            echo "Waiting for container to become healthy... ($i/5)"
-            sleep 30
+            echo "Waiting for container to become healthy... ($i/${{ env.MAX_ATTEMPTS }})"
+            sleep ${{ env.SLEEP_DURATION }}
           done
           echo "Container did not become healthy in time." && docker logs redirect-container && exit 1
       
