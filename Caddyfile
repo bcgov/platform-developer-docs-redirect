@@ -1,101 +1,112 @@
-# Where caddy should listen
-:2015
-
-# Turn on the Web/file server
-file_server
-
-# The site root
-root * /opt/app-root/src
-
-# Because we should
-encode zstd gzip
-
-redir / https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
-redir /sysdig-monitor-onboarding/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-onboarding/ permanent
-redir /sysdig-monitor-setup-team/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-setup-team/ permanent
-redir /sysdig-monitor-create-monitoring-dashboards/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-create-monitoring-dashboards/ permanent
-redir /sysdig-monitor-create-alert-channels/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-create-alert-channels/ permanent
-redir /sysdig-monitor-set-up-advanced-functions/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-set-up-advanced-functions/ permanent
-redir /resource-monitoring-dashboards/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/resource-monitoring-dashboards/ permanent
-redir /check-application-health-after-outage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/check-application-health-after-outage/ permanent
-redir /user-defined-monitoring/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/user-defined-monitoring/ permanent
-redir /best-practices-for-application-logging-in-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/best-pratices-for-application-logging-in-openshift/ permanent
-redir /ci-cd-pipeline-templates/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/cicd-pipeline-templates-for-private-cloud-teams/ permanent
-redir /app-resiliency-guidelines/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/app-resiliency-guidelines/ permanent
-redir /application-resource-tuning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/application-resource-tuning/ permanent
-redir /openshift-project-resource-quotas/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/openshift-project-resource-quotas/ permanent
-redir /request-quota-increase-for-openshift-project-set/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/request-quota-adjustment-for-openshift-project-set/ permanent
-redir /argo-cd-usage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
-redir /netapp-backup-restore/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/netapp-backup-restore/ permanent
-redir /prepare-to-load-test-application-on-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/prepare-to-load-test-application-on-openshift/ permanent
-redir /recovery-responsibilities/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/namespace-recovery-and-responsibilities permanent
-redir /build-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/build-an-application/ permanent
-redir /deploy-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/deploy-an-application/ permanent
-redir /maintain-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/maintain-an-application/ permanent
-redir /retire-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/retire-an-application/ permanent
-redir /image-artifact-management-with-artifactory/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/image-artifact-management-with-artifactory/ permanent
-redir /push-pull-artifacts-artifactory/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/push-pull-artifacts-artifactory/ permanent
-redir /setup-artifactory-service-account/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/setup-artifactory-service-account/ permanent
-redir /setup-artifactory-project-repository/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/setup-artifactory-project-repository/ permanent
-redir /build-with-rhel-base-images/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/build-with-rhel-base-images/ permanent
-redir /best-practices-for-managing-image-streams/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/imagestreams/ permanent
-redir /prebuilt-images/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/prebuilt-images/ permanent
-redir /high-availability-database-clusters/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/high-availability-database-clusters/ permanent
-redir /opensource-database-technologies/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/opensource-database-technologies/ permanent
-redir /database-backup-best-practices/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/database-backup-best-practices/ permanent
-redir /postgres-how-to/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/postgres-how-to/ permanent
-redir /about-the-design-system/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/design-system/about-the-design-system/ permanent
-redir /provision-new-openshift-project/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/provision-new-openshift-project/ permanent
-redir /grant-user-access-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/grant-user-access-openshift/ permanent
-redir /login-to-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/login-to-openshift/ permanent
-redir /install-the-oc-command-line-tool/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/install-the-oc-command-line-tool/ permanent
-redir /platform-storage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-storage/ permanent
-redir /platform-architecture-diagram/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-architecture-diagram/ permanent
-redir /openshift-network-policies/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/openshift-network-policies/ permanent
-redir /platform-network-topology/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-network-topology/ permanent
-redir /set-up-tcp-connectivity-on-private-cloud-openshift-platform/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/set-up-tcp-connectivity-on-private-cloud-openshift-platform/ permanent
-redir /platform-automation/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-automation/ permanent
-redir /reusable-services-list/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/reusable-code-and-services/reusable-services-list/ permanent
-redir /join-bc-rocket-chat/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/steps-to-join-rocketchat/ permanent
-redir /rocketchat-etiquette/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-etiquette/ permanent
-redir /rocketchat-channel-descriptions/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-channel-descriptions/ permanent
-redir /get-help-in-rocketchat/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/get-help-in-rocketchat/ permanent
-redir /security-best-practices-for-apps/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/security-best-practices-for-apps/ permanent
-redir /payment-card-processing/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/payment-card-processing/ permanent
-redir /vault-getting-started-guide/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/secrets-management/vault-getting-started-guide/ permanent
-redir /vault-secrets-management-service/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/secrets-management/vault-secrets-management-service/ permanent
-redir /training-from-the-platform-services-team/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/training-and-learning/training-from-the-platform-services-team/ permanent
-redir /training-external-resources/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/training-and-learning/training-external-resources/ permanent
-redir /bc-government-organizations-in-github/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/ permanent
-redir /remove-user-bcgov-github-access/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/remove-user-bcgov-github-access/ permanent
-redir /github-enterprise-user-licenses-bc-government/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/github-enterprise-user-licenses-bc-government/ permanent
-redir /evaluate-open-source-content/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/evaluate-open-source-content/ permanent
-redir /required-pages-for-github-repository/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/required-pages-for-github-repository/ permanent
-redir /start-working-in-bcgov-github-organization/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/start-working-in-bcgov-github-organization/ permanent
-redir /license-your-github-repository/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/license-your-github-repository/ permanent
-redir /hosting-tiers-table/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/hosting-tiers-table/ permanent
-redir /alertmanager/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/alertmanager/ permanent
-redir /automated-scaling/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/automated-scaling/ permanent
-redir /platform-automation/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/platform-automation/ permanent
-redir /project-examples/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/reusable-code-and-services/project-examples/ permanent
-redir /platform-security-tools/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/platform-security-tools/ permanent
-redir /devops-security-compliance/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/platform-security-compliance/ permanent
-redir /privacy-compliance-and-guidance/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/privacy-compliance-and-guidance/ permanent
-redir /argo-cd-shared-instances/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
-redir /kyverno/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/kyverno/ permanent
-redir /pruning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/pruning/ permanent
-redir /devops-security-considerations/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
-
-# On OCP we should log to stdout so Prometheus can
-# slurp up the logs for human consumption.
-log {
-	#errors stdout
-	output stdout
-	format transform "{common_log}"
-	level info
+{
+	persist_config off
+	admin off
 }
 
-handle_errors {
-	rewrite * /error.html
+# Where caddy should listen
+:2015 {
+	# Turn on the Web/file server
 	file_server
+
+	# The site root
+	root * /srv
+
+	#	Because we should
+	encode zstd gzip
+
+	# On OCP we should log to stdout so Prometheus can
+	# slurp up the logs for human consumption.
+	log {
+		#errors stdout
+		output stdout
+		format transform "{common_log}"
+		level info
+	}
+
+	handle_errors {
+		rewrite * /error.html
+		file_server
+	}
+
+	redir / https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
+	redir /sysdig-monitor-onboarding/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-onboarding/ permanent
+	redir /sysdig-monitor-setup-team/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-setup-team/ permanent
+	redir /sysdig-monitor-create-monitoring-dashboards/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-create-monitoring-dashboards/ permanent
+	redir /sysdig-monitor-create-alert-channels/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-create-alert-channels/ permanent
+	redir /sysdig-monitor-set-up-advanced-functions/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/sysdig-monitor-set-up-advanced-functions/ permanent
+	redir /resource-monitoring-dashboards/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/resource-monitoring-dashboards/ permanent
+	redir /check-application-health-after-outage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/check-application-health-after-outage/ permanent
+	redir /user-defined-monitoring/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/user-defined-monitoring/ permanent
+	redir /best-practices-for-application-logging-in-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/app-monitoring/best-pratices-for-application-logging-in-openshift/ permanent
+	redir /ci-cd-pipeline-templates/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/cicd-pipeline-templates-for-private-cloud-teams/ permanent
+	redir /app-resiliency-guidelines/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/app-resiliency-guidelines/ permanent
+	redir /application-resource-tuning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/application-resource-tuning/ permanent
+	redir /openshift-project-resource-quotas/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/openshift-project-resource-quotas/ permanent
+	redir /request-quota-increase-for-openshift-project-set/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/request-quota-adjustment-for-openshift-project-set/ permanent
+	redir /argo-cd-usage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
+	redir /netapp-backup-restore/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/netapp-backup-restore/ permanent
+	redir /prepare-to-load-test-application-on-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/prepare-to-load-test-application-on-openshift/ permanent
+	redir /recovery-responsibilities/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/namespace-recovery-and-responsibilities permanent
+	redir /build-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/build-an-application/ permanent
+	redir /deploy-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/deploy-an-application/ permanent
+	redir /maintain-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/maintain-an-application/ permanent
+	redir /retire-an-application/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/retire-an-application/ permanent
+	redir /image-artifact-management-with-artifactory/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/image-artifact-management-with-artifactory/ permanent
+	redir /push-pull-artifacts-artifactory/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/push-pull-artifacts-artifactory/ permanent
+	redir /setup-artifactory-service-account/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/setup-artifactory-service-account/ permanent
+	redir /setup-artifactory-project-repository/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/setup-artifactory-project-repository/ permanent
+	redir /build-with-rhel-base-images/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/build-with-rhel-base-images/ permanent
+	redir /best-practices-for-managing-image-streams/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/imagestreams/ permanent
+	redir /prebuilt-images/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/build-deploy-and-maintain-apps/prebuilt-images/ permanent
+	redir /high-availability-database-clusters/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/high-availability-database-clusters/ permanent
+	redir /opensource-database-technologies/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/opensource-database-technologies/ permanent
+	redir /database-backup-best-practices/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/database-backup-best-practices/ permanent
+	redir /postgres-how-to/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/database-and-api-management/postgres-how-to/ permanent
+	redir /about-the-design-system/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/design-system/about-the-design-system/ permanent
+	redir /provision-new-openshift-project/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/provision-new-openshift-project/ permanent
+	redir /grant-user-access-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/grant-user-access-openshift/ permanent
+	redir /login-to-openshift/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/login-to-openshift/ permanent
+	redir /install-the-oc-command-line-tool/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/openshift-projects-and-access/install-the-oc-command-line-tool/ permanent
+	redir /platform-storage/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-storage/ permanent
+	redir /platform-architecture-diagram/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-architecture-diagram/ permanent
+	redir /openshift-network-policies/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/openshift-network-policies/ permanent
+	redir /platform-network-topology/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-network-topology/ permanent
+	redir /set-up-tcp-connectivity-on-private-cloud-openshift-platform/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/set-up-tcp-connectivity-on-private-cloud-openshift-platform/ permanent
+	redir /platform-automation/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/platform-automation/ permanent
+	redir /reusable-services-list/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/reusable-code-and-services/reusable-services-list/ permanent
+	redir /join-bc-rocket-chat/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/steps-to-join-rocketchat/ permanent
+	redir /rocketchat-etiquette/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-etiquette/ permanent
+	redir /rocketchat-channel-descriptions/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/rocketchat-channel-descriptions/ permanent
+	redir /get-help-in-rocketchat/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/rocketchat/get-help-in-rocketchat/ permanent
+	redir /security-best-practices-for-apps/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/security-best-practices-for-apps/ permanent
+	redir /payment-card-processing/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/payment-card-processing/ permanent
+	redir /vault-getting-started-guide/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/secrets-management/vault-getting-started-guide/ permanent
+	redir /vault-secrets-management-service/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/secrets-management/vault-secrets-management-service/ permanent
+	redir /training-from-the-platform-services-team/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/training-and-learning/training-from-the-platform-services-team/ permanent
+	redir /training-external-resources/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/training-and-learning/training-external-resources/ permanent
+	redir /bc-government-organizations-in-github/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/bc-government-organizations-in-github/ permanent
+	redir /remove-user-bcgov-github-access/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/remove-user-bcgov-github-access/ permanent
+	redir /github-enterprise-user-licenses-bc-government/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/github-enterprise-user-licenses-bc-government/ permanent
+	redir /evaluate-open-source-content/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/evaluate-open-source-content/ permanent
+	redir /required-pages-for-github-repository/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/required-pages-for-github-repository/ permanent
+	redir /start-working-in-bcgov-github-organization/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/start-working-in-bcgov-github-organization/ permanent
+	redir /license-your-github-repository/ https://developer.gov.bc.ca/docs/default/component/bc-developer-guide/use-github-in-bcgov/license-your-github-repository/ permanent
+	redir /hosting-tiers-table/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-architecture-reference/hosting-tiers-table/ permanent
+	redir /alertmanager/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/alertmanager/ permanent
+	redir /automated-scaling/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/automated-scaling/ permanent
+	redir /platform-automation/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/platform-automation/ permanent
+	redir /project-examples/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/reusable-code-and-services/project-examples/ permanent
+	redir /platform-security-tools/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/platform-security-tools/ permanent
+	redir /devops-security-compliance/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/platform-security-compliance/ permanent
+	redir /privacy-compliance-and-guidance/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/security-and-privacy-compliance/privacy-compliance-and-guidance/ permanent
+	redir /argo-cd-shared-instances/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/automation-and-resiliency/argo-cd-usage/ permanent
+	redir /kyverno/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/kyverno/ permanent
+	redir /pruning/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/docs/platform-automation/pruning/ permanent
+	redir /devops-security-considerations/ https://developer.gov.bc.ca/docs/default/component/platform-developer-docs/ permanent
+}
+
+:2016 {
+	handle /health {
+		respond "OK"
+	}
 }

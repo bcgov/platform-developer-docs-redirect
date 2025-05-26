@@ -1,0 +1,109 @@
+name: Build, test and publish the image
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      MAX_ATTEMPTS: 5
+      SLEEP_DURATION: 30
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker image
+        run: docker buildx build -t platform-docs-redirect-test .
+
+      - name: Save Docker image as tar
+        run: docker save platform-docs-redirect-test -o /tmp/redirect-image.tar
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: redirect-image
+          path: /tmp/redirect-image.tar
+          retention-days: 1
+      
+      - name: Run container
+        run: |
+          docker run -d -p 2015:2015 -p 2016:2016 --name redirect-container platform-docs-redirect-test
+      
+      - name: Wait for healthy container
+        run: |
+          for ((i=1; i<=${{ env.MAX_ATTEMPTS }}; i++)); do
+            health=$(docker inspect --format='{{.State.Health.Status}}' redirect-container)
+            if [[ "$health" = "healthy" ]]; then
+              echo "Container is healthy!"; exit 0
+            fi
+            echo "Waiting for container to become healthy... ($i/${{ env.MAX_ATTEMPTS }})"
+            sleep ${{ env.SLEEP_DURATION }}
+          done
+          echo "Container did not become healthy in time." && docker logs redirect-container && exit 1
+      
+      - name: Run tests
+        run: |
+          chmod +x ./scripts/test-redirects.sh
+          ./scripts/test-redirects.sh localhost 2015
+      
+      - name: Stop container
+        if: always()
+        run: docker stop redirect-container
+
+  publish:
+    name: Publish to GitHub Container Registry
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: redirect-image
+          path: /tmp
+
+      - name: Load Docker image
+        run: docker load -i /tmp/redirect-image.tar
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor}}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: latest=true
+          tags: |
+            type=sha,format=short
+      
+      - name: Build and push to GitHub Container Registry
+        uses: docker/build-push-action@v6.17.0
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          load: true
+          file: Dockerfile
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
